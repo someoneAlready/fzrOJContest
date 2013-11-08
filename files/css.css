@@ -1,0 +1,194 @@
+/*基本信息*/
+body {
+	font:12px Tahoma;
+	margin:0px;
+	background:#FFF;
+}
+
+/*页面层容器*/
+#container {
+	width:100%;
+}
+
+/*页面头部*/
+#Header {
+	background:url(psb.jpg);
+	width:960px;
+	height:185px;
+	margin:auto;
+	clear:both;
+}
+
+#headbar {
+	margin-top:22px;
+	margin-left: 0px;
+	font-size:130%;
+}
+
+#Header p{
+	font-size:170%;
+	margin-left:150px;
+	color:#A5A5A5;
+}
+
+/*页面主体*/
+#PageBody {
+	width:960px;
+	margin:0 auto;
+}
+
+#MainBody {
+	width:756px;
+	text-align:left;
+	float:left; /*浮动居右*/
+	clear:left; /*不允许右侧存在浮动*/
+	overflow:hidden;
+}
+
+
+
+#Sidebar {
+	 width:200px; /*设定宽度*/
+	 text-align:left; /*文字左对齐*/
+	 float:right; /*浮动居左*/
+	 clear:right; /*不允许左侧存在浮动*/
+	 border-left:1px solid #CCC;
+	 overflow:hidden; /*超出宽度部分隐藏*/
+}
+
+#Sidebar_part{
+	width:160px;
+	background:#E0ECFF;
+	border:1px solid #CCC;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px;
+}
+
+#Sidebar_title{
+	width:150px;
+	background:#D0DCEF;
+	border:1px solid #CCC;
+	padding: 0 5px;
+	margin-bottom:5px;
+	font-size: 120%;
+	font-family:Tahoma;
+}
+
+#Sidebar_part p{
+	margin-left:5px;
+}
+
+/*页面底部*/
+#Footer {
+	width:960px;
+	margin:10px auto;	
+	clear:both;
+	text-align:center;
+}
+
+a {
+	color: #366D9C;
+}
+
+
+
+#title1, #title2, #title3{
+	padding:44px 0 0 50px;	
+    font-size: 150%;
+    font-style: italic;
+	font-family:Georgia;
+}
+
+#content{
+	margin:0 10px;
+}
+
+#content1, #content2{
+	margin:0 auto;
+	height:50px;
+	width:50px;
+}
+
+#content1 {
+	background:url(T1.png) no-repeat;;
+}
+
+#content2 {
+	background:url(T2.png) no-repeat;
+} 
+
+#submit {
+	border:1px solid #CCC;
+	width:650px;
+	padding:5px 5px;
+	background-color:#EEE;
+	margin-top:5px;
+}
+
+#comment {
+	margin-bottom:5px;	
+	width:650px;	
+	padding:5px 5px;
+	border:1px solid #CCC;
+	background:#F6F6F6;
+}
+
+#comment_title {
+	padding-left:53px;
+}
+#comment_content {
+	width:500px;
+	border:1px solid #CCC;
+	background:#FFF;
+}
+
+#new {
+	float:right;
+	margin: 5px;
+}
+
+#old {
+	float:left;
+	margin:5px;
+}
+
+#code {
+	font-family: "Courier New",Consolas,Verdana,Sans-Serif;
+	background-color: #FFFFFF;
+	border: 1px solid #424242;
+	margin-left: 5%;
+	margin-right: 10%;
+	padding:10px;
+}
+
+#subs{
+	text-align:center;	
+}
+
+#subs a {
+	text-decoration:none;
+	color:#3333FF;
+	font-size:17px;
+}
+
+#user a {
+	text-decoration:none;
+}
+
+#titles {
+	
+	font-size:22px;
+
+	border-radius: 0.5em;
+}
+
+#contentss {
+margin: 8px auto;
+padding: 0.5em;
+border: 1px solid #DDD;
+border-radius: 0.5em;
+box-shadow: 0 0 0.5em #DDD;
+font-size: 100%;
+background-color: #FFF;
+font-family: verdana, arial, sans-serif;
+}
