@@ -1,25 +1,26 @@
 <?php	
 	session_start();
 	if (!empty($_POST['id']) && !empty($_POST['pwd'])){
-		require_once 'conn.php';
+		require_once 'tools/conn.php';
 		$id = $_POST['id'];
 		$pwd = $_POST['pwd'];
+		$fuck = false;
 		
-		$result = mysql_query("SELECT * FROM user WHERE name='$id' and pwd='$pwd' limit 1");
+		$result = mysql_query("SELECT * FROM user WHERE uname='$id' and upwd='$pwd' limit 1");
 		if ($row = mysql_fetch_array($result)){
-			$_SESSION['name']=$row['name'];
-			$_SESSION['uid']=$row['id'];
-			$_SESSION['pwd']=$row['pwd'];
+
+			$_SESSION['uname']=$row['uname'];
+			$_SESSION['uid']=$row['uid'];
+			$_SESSION['upwd']=$row['upwd'];
 			$s= $_SESSION['HTTP_REFERER'];
 			unset($_SESSION['HTTP_REFERER']);
 			header("Location:$s");
 			exit();
 		}
 		else{
-			
+			$fuck = true;
 		}
 	
-		exit();
 	}
 ?>
 <?php 
@@ -34,10 +35,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>LogIn | fzrOJ</title>
 <link href="files/css.css" rel="stylesheet" type="text/css" />
+<?php if ($fuck) echo" <script>alert('User ID or Password was wrong!');</script>"; ?>
 </head>
 <body>
 	<div id="container">
-		<?php require_once 'head.php' ?>
+		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 			<table width="100%" id="contentss">
 			<form method="post" action="login.php">
@@ -52,7 +54,7 @@
 			</div>
 		
 		
-		<?php require_once 'footer.php' ?>
+		<?php require_once 'tools/footer.php' ?>
 
 	</div>
 </body>

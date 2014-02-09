@@ -19,13 +19,14 @@
 			<?php
 				require_once 'conn.php';
 				require_once 'func.php';
-				$result = mysql_query("SELECT * FROM user ORDER BY id");
+				$result = mysql_query($sql"SELECT * FROM user ORDER BY uid");
+				
 				while ($row = mysql_fetch_array($result)){
 					echo 
 							'<tr>'.
-							'<td width="30%" align="center">'.$row[name].'</td>'.
-							'<td width="40%" align="center">' . $row[motto]. '</td>'.
-							'<td width="30%" align="center">'. $row[sch]. '</td></tr>';
+							'<td width="30%" align="center">'.$row[uname].'</td>'.
+							'<td width="40%" align="center">' . $row[umotto]. '</td>'.
+							'<td width="30%" align="center">'. $row[uid]. '</td></tr>';
 
 				}
 				

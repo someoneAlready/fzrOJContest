@@ -1,19 +1,18 @@
 <?php
 	if (!empty($_POST['id'])){
-		require_once 'conn.php';
+		require_once 'tools/conn.php';
 		$id=$_POST['id'];
 		$pwd=$_POST['pwd'];
-		$sch=$_POST['sch'];
 		$email=$_POST['email'];
 		$motto=$_POST['motto'];
-		$result = mysql_query("SELECT * FROM user WHERE name='$id'");
+		$result = mysql_query("SELECT * FROM user WHERE uname='$id'");
 		if (mysql_fetch_array($result)){
 			echo 'sorry~ the user name has been register, please use other user name to register.';
 		}
 		else{
-			$sql="INSERT INTO user (name, pwd, email, motto, sch) VALUES ('$id', '$pwd', '$email', '$motto', '$sch')";
+			$sql="INSERT INTO user (uname, upwd, uemail, umotto) VALUES ('$id', '$pwd', '$email', '$motto')";
 			mysql_query($sql, $con);
-			echo ':-) You successful register the user...';
+			echo ' <p> :-) You successful register the user...</p><p><a href="login.php">click here to jump to login page</a></p>';
 		}
 		exit();
 	}
@@ -28,7 +27,7 @@
 </head>
 <body>
 	<div id="container">
-		<?php require_once 'head.php' ?>
+		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 		<script type="text/javascript">
 			function CheckForm(objForm){				 
@@ -50,7 +49,6 @@
 				<tr><td align="right" width="42%">User ID:</td><td> <input name="id" type="text"/></td><tr>
 				<tr><td align="right" width="42%">Password:</td><td>  <input name="pwd" type="password"/></td><tr>
 				<tr><td align="right" width="42%">Repeat Password:</td><td>  <input name="rpwd" type="password"/></td><tr>
-				<tr><td align="right" width="42%">School:</td><td>  <input name="sch" type="text"/></td><tr>
 				<tr><td align="right">E-mail:</td><td><input name="email" type="text"/></td></tr>
 				<tr><td align="right">motto:</td><td><input name="motto" type="text"/></td></tr>
 				<tr><td></td><td><input name="submit" type="submit" value="Submit" onClick="javaScript:return CheckForm(form1)"/>&nbsp; <input type="reset" value="Reset"/></td><tr>
@@ -58,7 +56,7 @@
 			</table>		
 
 		</div>		
-		<?php require_once 'footer.php' ?>
+		<?php require_once 'tools/footer.php' ?>
 	</div>
 </body>
 </html>			

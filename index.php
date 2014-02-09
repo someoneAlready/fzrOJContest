@@ -8,7 +8,7 @@
 
 <body>
 	<div id="container">
-		<?php require_once 'head.php' ?>
+		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 			<p> 
 			<img align="right" src="files/12.png" />
@@ -19,7 +19,7 @@
 			</p>
 	
 		</div>
-		<?php require_once 'footer.php' ?>
+		<?php require_once 'tools/footer.php' ?>
 	</div>
 </body>
 </html>
