@@ -28,8 +28,8 @@
 			<div id="headbar">
 			<table width="100%"><tr>
 				<td><a href="index.php">Admin</a> 
-				| <a href="add.php">Add</a>
 				| <a href="..">Index</a>
+				| <a href="add.php">Add</a>
 				</td>
 				<td align="right" id="user">
 				<?php
