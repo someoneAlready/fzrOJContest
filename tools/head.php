@@ -10,6 +10,7 @@
 				| <a href="plst.php?id=0">Problems</a>
 				| <a href="ranklist.php">Ranklist</a>
 				| <a href="status.php">Status</a>	
+				| <a href="admin">Admin</a>
 				</td>
 				<td align="right" id="user">
              			<?php

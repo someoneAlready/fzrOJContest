@@ -1,6 +1,7 @@
 <?php	
 	session_start();
 	if (!empty($_POST['id']) && !empty($_POST['pwd'])){
+		require_once 'tools/info.php';
 		require_once 'tools/conn.php';
 		$id = $_POST['id'];
 		$pwd = $_POST['pwd'];

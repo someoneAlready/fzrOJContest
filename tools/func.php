@@ -12,7 +12,6 @@
 	}
 	
 	function get_name($k){
-		require_once 'conn.php';
 		$result=mysql_query("SELECT name FROM user WHERE id='$k'");
 		$row=mysql_fetch_array($result);
 		return $row['name'];

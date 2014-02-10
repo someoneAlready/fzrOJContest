@@ -1,4 +1,5 @@
 <?php session_start();
+	
 	if ($_SESSION[uname]!='cgangee'){
 		echo 'sorry, you have not permission...';
 		exit();

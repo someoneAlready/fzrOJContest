@@ -1,5 +1,6 @@
 <?php
 	if (!empty($_POST['id'])){
+		require_once 'tools/info.php';
 		require_once 'tools/conn.php';
 		$id=$_POST['id'];
 		$pwd=$_POST['pwd'];

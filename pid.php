@@ -1,4 +1,5 @@
 <?php
+	require_once 'info.php';
 	require_once 'conn.php';
 	$pid=$_GET['id'];
 	$result=mysql_query("SELECT * FROM problem WHERE pid=$pid");

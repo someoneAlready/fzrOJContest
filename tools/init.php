@@ -1,5 +1,5 @@
 <?php
-	require_once 'tools/info.php';
+	require_once 'info.php';
 	$con=mysql_connect($host, $user, $pwd);
 	if (!$con)
 		die('ft' . mysql_error());
@@ -25,6 +25,7 @@
 		upwd varchar(255),
 		uemail varchar(255),
 		umotto varchar(255),
+		uadmin int DEFAULT 0,
 		udate timestamp
 	)";
 

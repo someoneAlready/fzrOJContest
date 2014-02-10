@@ -1,5 +1,4 @@
 <?php
-	require_once 'tools/info.php';
 	$con=mysql_connect($host, $user, $pwd);
 	if (!$con)
 		die('ft' . mysql_error());
