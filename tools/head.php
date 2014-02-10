@@ -15,7 +15,7 @@
 				<td align="right" id="user">
              			<?php
                                         if (isset($_SESSION['uid'])){
-                                                echo $_SESSION[uname].'  <a href="../logout.php">Logout</a>';
+                                                echo $_SESSION[uname].'  <a href="logout.php">Logout</a>';
                                         }
                                         else
                                                 echo '<a href="login.php">Login</a> <a href="register.php">Rigister</a>';

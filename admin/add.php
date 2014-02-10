@@ -1,14 +1,15 @@
 <?php	
-	if (!empty($_POST['pid']) &&!empty($_POST['title']) && !empty($_POST['desp']) && !empty($_POST['input']) && !empty($_POST['output']) && !empty($_POST['sinput']) && !empty($_POST['soutput']) && !empty($_POST['tlimit']) && !empty($_POST['mlimit']) )
+	if (!empty($_POST['pid']) &&!empty($_POST['pname']) && !empty($_POST['ptime']) && !empty($_POST['pmem']) && !empty($_POST['ptext']) && !empty($_POST['psource']) && !empty($_POST['pdate']) )
 	{
+		require_once '../tools/info.php';
 		require_once '../tools/conn.php';
-		
 		
 			
 
-		$sql="INSERT INTO problem (pid, title ,desp ,input ,output ,sinput ,soutput, source,tlimit, mlimit )
+		$sql="INSERT INTO problem (pid, pname ,ptime ,pmem ,ptext ,psource )
 		VALUES
-		('$_POST[pid]', '$_POST[title]','$_POST[desp]','$_POST[input]','$_POST[output]','$_POST[sinput]','$_POST[soutput]','$_POST[source]', '$_POST[tlimit]', '$_POST[mlimit]' )";		
+		('$_POST[pid]', '$_POST[pname]','$_POST[ptime]','$_POST[pmem]','$_POST[ptext]','$_POST[psource]' )";		
+
 		if (!mysql_query($sql,$con))		
 			die('ft' . mysql_error());
 		echo 'ft OK!!' ;		
@@ -29,32 +30,17 @@
 	<div id="container">
 		<div id="PageBody">	
 			<form action="add.php" method="post">
-<!---				<p id="contentss">ID &nbsp;<input type="text" name="id" /></p> -->
-				<p id="contentss">Problem ID &nbsp;<input type="text" name="pid" /></p>
-				<p id="contentss">Time Limit <input type="text" name="tlimit"/> Memory Limit <input type="text" name="mlimit"/></p>
+				<p id="contentss">Problem ID &nbsp;<input type="text" name="pid" /> Title<input type="text" name="pname" /></p>
+				<p id="contentss">Time Limit <input type="text" name="ptime"/> Memory Limit <input type="text" name="tmem"/></p>
 
-				<p id="titles" style="text-align:center;">
-				Title
-				<input type="text" name="title" />
-				</p>
-				
-				<p id="titles">Description</p>
-				<p id="contentss"><textarea name="desp" cols=100% rows="8"></textarea></p>
-				
-				<p id="titles">Input</p>
-				<p id="contentss"><textarea name="input" cols="100%" rows="3"></textarea></p>
-				
-				<p id="titles">Output</p>
-				<p id="contentss"><textarea name="output" cols="100%" rows="3"></textarea></p>
-				
-				<p id="titles">Sample Input</p>
-				<pre id="contentss"><textarea name="sinput" cols="100%" rows="3"></textarea></pre>
-				
-				<p id="titles">Sample Output</p>
-				<pre id="contentss"><textarea name="soutput" cols="100%" rows="3"></textarea></pre>
-				
+				<p id="titles">Text
+			  <small>		//desp input output sinput soutput</small></p>
+				<p id="contentss"><textarea name="ptext" cols=100% rows="15"></textarea></p>
+
 				<p id="titles">Source</p>
-				<p id="contentss"><textarea name="source" cols="100%" rows="1"></textarea></p>
+				<p id="contentss"><textarea name="psource" cols="100%" rows="3"></textarea></p>
+
+
 
 				<p id="titles" style="text-align:center;">
 					<input type="submit" value="Submit"/>&nbsp;

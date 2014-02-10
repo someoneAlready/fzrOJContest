@@ -1,7 +1,22 @@
 <?php session_start();
-	
-	if ($_SESSION[uname]!='cgangee'){
-		echo 'sorry, you have not permission...';
+	require_once '../tools/info.php';
+	require_once '../tools/conn.php';
+
+	if (isset($_SESSION['uname'])){
+		$uname = $_SESSION['uname'];
+		$sql = "SELECT uadmin FROM user WHERE uname='$uname'";
+		$result = mysql_query($sql);
+		$row = mysql_fetch_array($result);
+		if ($row['uadmin']==1){
+		}
+		else{
+			echo 'sorry, you have not permission...';
+			exit();
+		}
+
+	}
+	else{
+		echo 'sorry, please login...';
 		exit();
 	}
 ?>
@@ -14,6 +29,7 @@
 			<table width="100%"><tr>
 				<td><a href="index.php">Admin</a> 
 				| <a href="add.php">Add</a>
+				| <a href="..">Index</a>
 				</td>
 				<td align="right" id="user">
 				<?php

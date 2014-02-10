@@ -12,9 +12,10 @@
 	(
 		pid int PRIMARY KEY NOT NULL AUTO_INCREMENT,
 		pname varchar(255),
-		ptext text,
 		ptime int,
 		pmem int,
+		ptext text,
+		psource text,
 		pdate timestamp
 	)";
 
