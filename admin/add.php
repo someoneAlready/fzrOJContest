@@ -1,5 +1,5 @@
 <?php	
-	if (!empty($_POST['pid']) &&!empty($_POST['pname']) && !empty($_POST['ptime']) && !empty($_POST['pmem']) && !empty($_POST['ptext']) && !empty($_POST['psource']) && !empty($_POST['pdate']) )
+	if (!empty($_POST['pid']) &&!empty($_POST['pname']) && !empty($_POST['ptime']) && !empty($_POST['pmem']) && !empty($_POST['ptext']) && !empty($_POST['psource']) )
 	{
 		require_once '../tools/info.php';
 		require_once '../tools/conn.php';
@@ -31,11 +31,11 @@
 		<div id="PageBody">	
 			<form action="add.php" method="post">
 				<p id="contentss">Problem ID &nbsp;<input type="text" name="pid" /> Title<input type="text" name="pname" /></p>
-				<p id="contentss">Time Limit <input type="text" name="ptime"/> Memory Limit <input type="text" name="tmem"/></p>
+				<p id="contentss">Time Limit <input type="text" name="ptime"/> Memory Limit <input type="text" name="pmem"/></p>
 
 				<p id="titles">Text
 			  <small>		//desp input output sinput soutput</small></p>
-				<p id="contentss"><textarea name="ptext" cols=100% rows="15"></textarea></p>
+				<p id="contentss"><textarea name="ptext" cols=100% rows="10"></textarea></p>
 
 				<p id="titles">Source</p>
 				<p id="contentss"><textarea name="psource" cols="100%" rows="3"></textarea></p>

@@ -167,13 +167,14 @@ a {
 
 #subs a {
 	text-decoration:none;
-	color:#3333FF;
+	color:#1f824d;
 	font-size:17px;
 }
 
 #user a {
 	text-decoration:none;
 }
+
 
 #titles {
 	
@@ -192,3 +193,15 @@ font-size: 100%;
 background-color: #FFF;
 font-family: verdana, arial, sans-serif;
 }
+
+.contentss {
+margin: 8px auto;
+padding: 0.5em;
+border: 1px solid #DDD;
+border-radius: 0.5em;
+box-shadow: 0 0 0.5em #DDD;
+font-size: 100%;
+background-color: #FFF;
+font-family: verdana, arial, sans-serif;
+}
+

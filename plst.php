@@ -9,7 +9,7 @@
 
 <body>
 	<div id="container">
-		<?php require_once 'head.php' ?>
+		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 	
 				<table width="100%" >
@@ -17,23 +17,24 @@
 					<td width="25%">ID</td><td width="28%">Title</td><td width="30%">Source</td><td width="30%">Date</td>
 				</tr>
 				<?php 
-					require_once 'conn.php';
+					require_once 'tools/info.php';
+					require_once 'tools/conn.php';
 					$result=mysql_query("SELECT * FROM problem");
 					while ($row = mysql_fetch_array($result)){
 						
 						echo 
 							'<tr>'.
 							'<td width="25%">'.($row[pid]).'</td>'.
-							'<td  width="28%">'. '<a href="pid.php?id='. ($row[pid]) .'">'. $row[title]  .'</a> </td>'.
-							'<td width="30%">'. $row[source]. '</td>'.
-							'<td width="17%">'.	$row[date] .'</td></tr>';
+							'<td  width="28%">'. '<a href="pid.php?id='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
+							'<td width="30%">'. $row[psource]. '</td>'.
+							'<td width="17%">'.	$row[pdate] .'</td></tr>';
 					}
 				?>
 				</table>
 		
 			
 		</div>				
-		<?php require_once 'footer.php' ?>
+		<?php require_once 'tools/footer.php' ?>
 	</div>
 </body>
 </html>

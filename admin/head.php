@@ -16,7 +16,7 @@
 
 	}
 	else{
-		echo 'sorry, please login...';
+		header("Location:../login.php");
 		exit();
 	}
 ?>
