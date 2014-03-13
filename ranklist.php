@@ -9,13 +9,13 @@
 	<div id="container">
 		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
-		
-			<table width="100%" >
+			<p>
+			<table width="100%" id="table">
 			<tr>
-				<td width="10%" align="center">No.</td>
-				<td width="20%" align="center">User ID</td>
-				<td width="60%" align="center">Motto</td>
-				<td width="10%" align="center">Solved</td>
+				<th width="25%" >No.</th>
+				<th width="25%" >User ID</th>
+				<th width="25%" >Motto</th>
+				<th width="25%" >Solved</th>
 			</tr>		
 			<?php
 				require_once 'tools/info.php';
@@ -37,15 +37,16 @@
 					$no ++;
 					echo 
 							'<tr>'.
-							'<td width="10%" align="center">'. $no . '</td>'.
-							'<td width="20%" align="center">'.$row[uname].'</td>'.
-							'<td width="60%" align="center">' . $row[umotto]. '</td>'.
-							'<td width="20%" align="center">'. $row[problem]. '</td></tr>';
+							'<td width="25%">'. $no . '</td>'.
+							'<td width="25%">'.$row[uname].'</td>'.
+							'<td width="25%">' . $row[umotto]. '</td>'.
+							'<td width="25%">'. $row[problem]. '</td></tr>';
 
 				}
 				
 			?>
 			</table>
+			</p>
 			
 		
 		</div>

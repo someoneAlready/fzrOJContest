@@ -9,15 +9,15 @@
 	<div id="container">
 		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
-		
-			<table width="100%" >
+			<p>
+			<table width="100%" id="table">
 			<tr>
-				<td width="15%">Run ID</td>
-				<td width="17%">User</td>
-				<td width="17">Problem ID</td>
-				<td width="15%">Result</td>
-				<td width="15%">Language</td>
-				<td width="15%">Date</td>
+				<th width="15%">No.</th>
+				<th width="17%">User</th>
+				<th width="17">Problem ID</th>
+				<th width="15%">Result</th>
+				<th width="15%">Language</th>
+				<th width="15%">Date</th>
 			</tr>		
 			<?php
 				require_once 'tools/info.php';
@@ -37,6 +37,7 @@
 				
 			?>
 			</table>
+			</p>
 			
 		
 		</div>

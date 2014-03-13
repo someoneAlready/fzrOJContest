@@ -12,9 +12,9 @@
 		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 	
-				<table width="100%" >
-				<tr>
-					<td width="25%">ID</td><td width="28%">Title</td><td width="30%">Source</td><td width="30%">Date</td>
+				<p>
+				<table width="100%" id="table">
+					<th width="25%">No.</th><th width="25%">Title</th><th width="25%">Source</th><th width="25%">Date</th>
 				</tr>
 				<?php 
 					require_once 'tools/info.php';
@@ -25,12 +25,13 @@
 						echo 
 							'<tr>'.
 							'<td width="25%">'.($row[pid]).'</td>'.
-							'<td  width="28%">'. '<a href="pid.php?pid='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
-							'<td width="30%">'. $row[psource]. '</td>'.
-							'<td width="17%">'.	$row[pdate] .'</td></tr>';
+							'<td  width="25%">'. '<a href="pid.php?pid='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
+							'<td width="25%">'. $row[psource]. '</td>'.
+							'<td width="25%">'.	$row[pdate] .'</td></tr>';
 					}
 				?>
 				</table>
+				</p>
 		
 			
 		</div>				
