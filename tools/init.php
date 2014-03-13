@@ -37,7 +37,7 @@
 		uid int,
 		ctext text,
 		clang varchar(255),
-		cstatus varchar(255), 
+		cstatus int NOT NULL DEFAULT 0, 
 		ctime int,
 		cmem int,
 		cdate timestamp,

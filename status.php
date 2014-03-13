@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div id="container">
-		<?php require_once 'head.php' ?>
+		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 		
 			<table width="100%" >
@@ -20,18 +20,19 @@
 				<td width="15%">Date</td>
 			</tr>		
 			<?php
-				require_once 'conn.php';
-				require_once 'func.php';
-				$result = mysql_query("SELECT * FROM code ORDER BY id DESC LIMIT 0, 100");
+				require_once 'tools/info.php';
+				require_once 'tools/conn.php';
+				require_once 'tools/func.php';
+				$result = mysql_query("SELECT * FROM code ORDER BY cid DESC LIMIT 0, 100");
 				while ($row = mysql_fetch_array($result)){
 					echo 
 							'<tr>'.
-							'<td width="15%">'.$row[id].'</td>'.
+							'<td width="15%">'.$row[cid].'</td>'.
 							'<td width="17%">'. get_name($row[uid]). '</td>'.
 							'<td width="17">' . $row[pid]. '</td>'.
-							'<td width="15%">'. get_status($row[status]). '</td>'.
-							'<td width="15%">'. get_lang($row[lang]). '</td>'.
-							'<td width="15%">'.	$row[date] .'</td></tr>';
+							'<td width="15%">'. get_status($row[cstatus]). '</td>'.
+							'<td width="15%">'. get_lang($row[clang]). '</td>'.
+							'<td width="15%">'.	$row[cdate] .'</td></tr>';
 				}
 				
 			?>
@@ -39,7 +40,7 @@
 			
 		
 		</div>
-		<?php require_once 'footer.php' ?>
+		<?php require_once 'tools/footer.php' ?>
 
 	</div>
 </body>

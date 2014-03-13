@@ -25,7 +25,7 @@
 						echo 
 							'<tr>'.
 							'<td width="25%">'.($row[pid]).'</td>'.
-							'<td  width="28%">'. '<a href="pid.php?id='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
+							'<td  width="28%">'. '<a href="pid.php?pid='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
 							'<td width="30%">'. $row[psource]. '</td>'.
 							'<td width="17%">'.	$row[pdate] .'</td></tr>';
 					}

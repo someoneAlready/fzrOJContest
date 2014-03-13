@@ -7,26 +7,40 @@
 </head>
 <body>
 	<div id="container">
-		<?php require_once 'head.php' ?>
+		<?php require_once 'tools/head.php' ?>
 		<div id="PageBody">
 		
 			<table width="100%" >
 			<tr>
-				<td width="30%" align="center">User ID</td>
-				<td width="40%" align="center">motto</td>
-				<td width="30%" align="center">School</td>
+				<td width="10%" align="center">No.</td>
+				<td width="20%" align="center">User ID</td>
+				<td width="60%" align="center">Motto</td>
+				<td width="10%" align="center">Solved</td>
 			</tr>		
 			<?php
-				require_once 'conn.php';
-				require_once 'func.php';
-				$result = mysql_query($sql"SELECT * FROM user ORDER BY uid");
+				require_once 'tools/info.php';
+				require_once 'tools/conn.php';
+				require_once 'tools/func.php';
+				$sql = "SELECT uname, count(DISTINCT pid) problem, umotto
+				FROM code, user 
+				WHERE code.uid=user.uid 
+				AND cstatus=0
+				GROUP BY user.uid
+				ORDER BY COUNT(DISTINCT pid) DESC
+				";
+
+				$result = mysql_query($sql);
+				$no = 0;
+
 				
 				while ($row = mysql_fetch_array($result)){
+					$no ++;
 					echo 
 							'<tr>'.
-							'<td width="30%" align="center">'.$row[uname].'</td>'.
-							'<td width="40%" align="center">' . $row[umotto]. '</td>'.
-							'<td width="30%" align="center">'. $row[uid]. '</td></tr>';
+							'<td width="10%" align="center">'. $no . '</td>'.
+							'<td width="20%" align="center">'.$row[uname].'</td>'.
+							'<td width="60%" align="center">' . $row[umotto]. '</td>'.
+							'<td width="20%" align="center">'. $row[problem]. '</td></tr>';
 
 				}
 				
@@ -35,7 +49,7 @@
 			
 		
 		</div>
-		<?php require_once 'footer.php' ?>
+		<?php require_once 'tools/footer.php' ?>
 
 	</div>
 </body>

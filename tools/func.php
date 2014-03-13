@@ -12,9 +12,9 @@
 	}
 	
 	function get_name($k){
-		$result=mysql_query("SELECT name FROM user WHERE id='$k'");
+		$result=mysql_query("SELECT uname FROM user WHERE uid='$k'");
 		$row=mysql_fetch_array($result);
-		return $row['name'];
+		return $row['uname'];
 	}
 	function get_lang($k){
 		switch ($k){
