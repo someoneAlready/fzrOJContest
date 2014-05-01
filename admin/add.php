@@ -54,7 +54,7 @@
 </textarea></p>
 
 				<p id="titles">Source</p>
-				<p id="contentss"><textarea name="psource" cols="100%" rows="3"></textarea></p>
+				<p id="contentss"><input type="text" name="psource" size="50"></textarea></p>
 
 
 

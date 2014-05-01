@@ -21,10 +21,16 @@
 				require_once 'tools/info.php';
 				require_once 'tools/conn.php';
 				require_once 'tools/func.php';
+
+				if (!empty($_GET['rid']))
+					$rid = $_GET['rid'];
+				else
+					$rid = 0;
+
 				$sql = "SELECT uname, count(DISTINCT pid) problem, umotto
 				FROM code, user 
 				WHERE code.uid=user.uid 
-				AND cstatus=0
+				AND cstatus=3
 				GROUP BY user.uid
 				ORDER BY COUNT(DISTINCT pid) DESC
 				";
@@ -35,17 +41,29 @@
 				
 				while ($row = mysql_fetch_array($result)){
 					$no ++;
-					echo 
+					if ($no>=$rid*15+1 )
+						echo 
 							'<tr>'.
 							'<td width="25%">'. $no . '</td>'.
 							'<td width="25%">'.$row[uname].'</td>'.
 							'<td width="25%">' . $row[umotto]. '</td>'.
 							'<td width="25%">'. $row[problem]. '</td></tr>';
+					if ($no==($rid+1)*15) break;
 
 				}
 				
 			?>
 			</table>
+			<p id="subs">
+				<a href="ranklist.php">[Top]</a>&nbsp;&nbsp;&nbsp;
+				<a href="ranklist.php?rid=<?php 
+					echo max(0, $rid-1);
+					?>">[Previous Page]</a>&nbsp;&nbsp;&nbsp;
+				<a href="ranklist.php?rid=<?php
+					echo $rid+1;
+	
+				?>">[Next Page]</a>
+			</p>
 			</p>
 			
 		
