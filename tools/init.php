@@ -16,7 +16,7 @@
 		pmem int,
 		ptext text,
 		psource text,
-		pdate timestamp
+		pdate timestamp DEFAULT CURRENT_TIMESTAMP
 	)";
 
 	$sql_users="CREATE TABLE user
@@ -27,7 +27,7 @@
 		uemail varchar(255),
 		umotto varchar(255),
 		uadmin int DEFAULT 0,
-		udate timestamp
+		udate timestamp DEFAULT CURRENT_TIMESTAMP
 	)";
 
 	$sql_codes="CREATE TABLE code
@@ -40,7 +40,7 @@
 		cstatus int NOT NULL DEFAULT 0, 
 		ctime int,
 		cmem int,
-		cdate timestamp,
+		cdate timestamp DEFAULT CURRENT_TIMESTAMP,
 		FOREIGN KEY (pid) REFERENCES problem(pid),
 		FOREIGN KEY (uid) REFERENCES user(uid)
 	)";
@@ -61,8 +61,7 @@
 		FOREIGN KEY(tid) REFERENCES test(tid)
 	)";
 	
-	mysql_query($sql_problems,$con);
-	mysql_query($sql_users,$con);
+	mysql_query($sql_problems,$con); mysql_query($sql_users,$con);
 	mysql_query($sql_codes,$con);
 	mysql_query($sql_test,$con);
 	mysql_query($sql_belong,$con);

@@ -28,12 +28,12 @@
 				</p>
 				
 
-				<hr>
+				<div class="contentss">
 				<center><font style="font-size:16px;"><font color="#1f824d">Time Limit:</font> <?php echo $row[ptime]?> Second<?php if ($row[ptime]>1) echo 's'; ?>  
 				&nbsp;&nbsp;&nbsp;<font color="#1f824d">Memory Limit:</font> <?php echo $row[pmem] ?> MB
 				</font>
 				</center>
-				<hr>
+				</div>
 
 				<p id="titles">Description</p>
 				<p id="desp" class="contentss"></p>

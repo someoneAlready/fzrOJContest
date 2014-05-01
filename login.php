@@ -13,6 +13,8 @@
 			$_SESSION['uname']=$row['uname'];
 			$_SESSION['uid']=$row['uid'];
 			$_SESSION['upwd']=$row['upwd'];
+			$_SESSION['uadmin']=$row['uadmin'];
+
 			$s= $_SESSION['HTTP_REFERER'];
 			unset($_SESSION['HTTP_REFERER']);
 			header("Location:$s");

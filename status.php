@@ -23,7 +23,15 @@
 				require_once 'tools/info.php';
 				require_once 'tools/conn.php';
 				require_once 'tools/func.php';
-				$result = mysql_query("SELECT * FROM code ORDER BY cid DESC LIMIT 0, 100");
+				if (!empty($_GET['sid']))
+					$sid = $_GET['sid'];
+				else
+					$sid = 0;
+				
+
+				
+
+				$result = mysql_query("SELECT * FROM code WHERE cid<=((select max(cid) from code)-15*$sid)  ORDER BY cid DESC LIMIT 0, 15");
 				while ($row = mysql_fetch_array($result)){
 					echo 
 							'<tr>'.
@@ -35,8 +43,19 @@
 							'<td width="15%">'.	$row[cdate] .'</td></tr>';
 				}
 				
+
 			?>
 			</table>
+			<p id="subs">
+				<a href="status.php">[Top]</a>&nbsp;&nbsp;&nbsp;
+				<a href="status.php?sid=<?php 
+					echo max(0, $sid-1);
+					?>">[Previous Page]</a>&nbsp;&nbsp;&nbsp;
+				<a href="status.php?sid=<?php
+					echo $sid+1;
+	
+				?>">[Next Page]</a>
+			</p>
 			</p>
 			
 		

@@ -14,7 +14,7 @@
 	
 				<p>
 				<table width="100%" id="table">
-					<th width="25%">No.</th><th width="25%">Title</th><th width="25%">Source</th><th width="25%">Date</th>
+					<th width="20%">No.</th><th width="40%">Title</th><th width="40%">Source</th>
 				</tr>
 				<?php 
 					require_once 'tools/info.php';
@@ -24,10 +24,9 @@
 						
 						echo 
 							'<tr>'.
-							'<td width="25%">'.($row[pid]).'</td>'.
-							'<td  width="25%">'. '<a href="pid.php?pid='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
-							'<td width="25%">'. $row[psource]. '</td>'.
-							'<td width="25%">'.	$row[pdate] .'</td></tr>';
+							'<td width="20%">'.($row[pid]).'</td>'.
+							'<td  width="40%">'. '<a href="pid.php?pid='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
+							'<td width="40%">'. $row[psource]. '</td>';
 					}
 				?>
 				</table>
