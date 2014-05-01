@@ -32,6 +32,7 @@
 				
 
 				$result = mysql_query("SELECT * FROM code WHERE cid<=((select max(cid) from code)-15*$sid)  ORDER BY cid DESC LIMIT 0, 15");
+				$flag=0;
 				while ($row = mysql_fetch_array($result)){
 					echo 
 							'<tr>'.
@@ -41,6 +42,7 @@
 							'<td width="15%">'. get_status($row[cstatus]). '</td>'.
 							'<td width="15%">'. get_lang($row[clang]). '</td>'.
 							'<td width="15%">'.	$row[cdate] .'</td></tr>';
+					$flag=$row[cid];
 				}
 				
 
@@ -52,7 +54,8 @@
 					echo max(0, $sid-1);
 					?>">[Previous Page]</a>&nbsp;&nbsp;&nbsp;
 				<a href="status.php?sid=<?php
-					echo $sid+1;
+					if ($flag!=1) $sid++;
+					 echo $sid; 
 	
 				?>">[Next Page]</a>
 			</p>

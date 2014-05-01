@@ -19,7 +19,14 @@
 				<?php 
 					require_once 'tools/info.php';
 					require_once 'tools/conn.php';
-					$result=mysql_query("SELECT * FROM problem");
+					
+					if (!empty($_GET['pid']))
+						$pid = $_GET['pid'];
+					else
+						$pid = 0;
+
+					$flag=0;
+					$result=mysql_query("SELECT * FROM problem where pid>1000+$pid*15 order by pid LIMIT 0, 15");
 					while ($row = mysql_fetch_array($result)){
 						
 						echo 
@@ -27,9 +34,28 @@
 							'<td width="20%">'.($row[pid]).'</td>'.
 							'<td  width="40%">'. '<a href="pid.php?pid='. ($row[pid]) .'">'. $row[pname]  .'</a> </td>'.
 							'<td width="40%">'. $row[psource]. '</td>';
+						$flag=$row[pid];
 					}
 				?>
 				</table>
+
+	<p id="subs">
+<a href="plst.php">[Top]</a>&nbsp;&nbsp;&nbsp;
+<a href="plst.php?pid=<?php
+echo max(0, $pid-1);
+?>">[Previous Page]</a>&nbsp;&nbsp;&nbsp;
+<a href="plst.php?pid=<?php
+
+					$result=mysql_query("SELECT max(pid) pid FROM problem");
+					$row = mysql_fetch_array($result);
+
+
+if ($flag!=$row[pid]) $pid++;
+echo $pid;
+
+?>">[Next Page]</a>
+</p>
+
 				</p>
 		
 			

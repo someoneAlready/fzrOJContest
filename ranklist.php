@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title> Status | fzrOJ</title>
+<title> Ranklist | fzrOJ</title>
 <link href="files/css.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -37,10 +37,15 @@
 
 				$result = mysql_query($sql);
 				$no = 0;
+				$flag =1;
 
 				
 				while ($row = mysql_fetch_array($result)){
 					$no ++;
+					if ($no==($rid+1)*15+1){ 
+						$flag=0; break;
+					}
+
 					if ($no>=$rid*15+1 )
 						echo 
 							'<tr>'.
@@ -48,7 +53,7 @@
 							'<td width="25%">'.$row[uname].'</td>'.
 							'<td width="25%">' . $row[umotto]. '</td>'.
 							'<td width="25%">'. $row[problem]. '</td></tr>';
-					if ($no==($rid+1)*15) break;
+						
 
 				}
 				
@@ -59,10 +64,13 @@
 				<a href="ranklist.php?rid=<?php 
 					echo max(0, $rid-1);
 					?>">[Previous Page]</a>&nbsp;&nbsp;&nbsp;
-				<a href="ranklist.php?rid=<?php
-					echo $rid+1;
-	
-				?>">[Next Page]</a>
+
+				
+				<?php 
+					if ($flag==0) $rid++;
+					$s="<a href='ranklist.php?rid=$rid'>[Next Page]</a>";
+					echo $s;
+				?>
 			</p>
 			</p>
 			
