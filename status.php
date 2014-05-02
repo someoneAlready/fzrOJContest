@@ -40,8 +40,14 @@
 							'<td width="17%">'. get_name($row[uid]). '</td>'.
 							'<td width="17">' . $row[pid]. '</td>'.
 							'<td width="15%">'. get_status($row[cstatus]). '</td>'.
-							'<td width="15%">'. get_lang($row[clang]). '</td>'.
-							'<td width="15%">'.	$row[cdate] .'</td></tr>';
+							"<td width='15%'>";
+							$str = get_lang($row[clang]);
+							if (!empty($_SESSION['uname']))
+								if ($_SESSION['uadmin']==1 || $_SESSION['uid']==$row[uid])
+									$str = "<a href='source.php?sid=$row[cid]'>".$str."</a>";
+									
+							echo $str.'</a></td>'.
+								'<td width="15%">'.	$row[cdate] .'</td></tr>';
 					$flag=$row[cid];
 				}
 				
