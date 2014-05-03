@@ -38,7 +38,7 @@
 							'<tr>'.
 							'<td width="15%">'.$row[cid].'</td>'.
 							'<td width="17%">'. get_name($row[uid]). '</td>'.
-							'<td width="17">' . $row[pid]. '</td>'.
+							"<td width='17'><a href='pid.php?pid=$row[pid]'>" . $row[pid]. '</a></td>'.
 							'<td width="15%">'. get_status($row[cstatus]). '</td>'.
 							"<td width='15%'>";
 							$str = get_lang($row[clang]);
