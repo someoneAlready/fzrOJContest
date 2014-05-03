@@ -9,14 +9,38 @@
 <body>
 	<div id="container">
 		<?php require_once 'tools/head.php' ?>
+		<?php require_once 'tools/info.php' ?>
+		<?php require_once 'tools/func.php' ?>
 		<div id="PageBody">
-			<p> 
 			<img align="right" src="files/12.png" />
-			<strong>Problems</strong> is the place where you can find large amount of problems from different programming contests. Online Judge System allows you to test your solution for every problem.
-			
-			</p>
-			<p><strong>Designer & Developer</strong> Chen Gang
-			</p>
+			<h2>The 7th Zhengzhou University Collegiate Programming Contest</h2>
+			<table id="table2" >
+				<tr>
+					<td>Start Time:</td>
+					<td><font color="#1f824d"><?php echo $start_time_string; ?></font></td>
+				</tr>
+				<tr>
+					<td>Length:</td>
+					<td><?php echo $length?> Hours</td>
+					
+				</tr>
+				<tr>
+					<td>Status:</td>
+				    <td><?php if ($start_time>time()) echo 'Waiting';
+				   	else if (time()>$start_time+3600*$length) echo 'Finished';
+					else echo 'Runing';
+					?></td>
+				</tr>
+				<?php if (time()<$start_time){
+						$delta = $start_time - time();
+						$gao = get_time($delta);
+
+						echo '	<tr>	<td>Countdown:</td>	<td>' . $gao .'</td>	</tr>	';
+					}
+				?>
+			</table>
+
+
 	
 		</div>
 		<?php require_once 'tools/footer.php' ?>

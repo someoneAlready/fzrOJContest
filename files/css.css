@@ -1,8 +1,22 @@
 /*基本信息*/
+.ac { background: #e1ffb5; }
+.firstac { background: #080; color: white !important; font-weight: bold; }
+.fail { background: #ffdada; }
+
 body {
-	font:12px Tahoma;
+	font:13px Tahoma;
 	margin:0px;
 	background:#FFF;
+}
+
+#table2 {
+	width:500px;
+}
+
+#table2 td{
+	text-align:left;
+	font-size:17px;
+	width:50%;
 }
 
 #table{ 
