@@ -1,13 +1,14 @@
 <?php
 	function get_status($k){
 		switch ($k){
-			case 0:return "<font color='green'>Pending...</font>";
+			case 0:return "<font color='slategray'>Waiting</font>";
 			case 1:return "<font color='blue'>Compile Error</font>";
-			case 2:return "<font color='purple'>Time Limit Exceeded</font>";
+			case 2:return "<font color='scarlet'>Time Limit Exceeded</font>";
 			case 3:return "<font color='green'>Accepted</font>";
 			case 4:return "<font color='red'>Wrong Answer</font>";
-			case 5:return "<font color='yellow'>Runtime Error</font>";
-			case 6:return "<font color='green'>Presentation Error</font>";
+			case 5:return "<font color='chocolate'>Runtime Error</font>";
+			case 6:return "<font color='violet'>Presentation Error</font>";
+			case 7:return "<font color='maroon'>Memory Limit Exceeded</font>";
 		}
 	}
 	
