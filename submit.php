@@ -1,4 +1,11 @@
-<?php require_once 'user.php';?>
+<?php 
+	require_once 'user.php';
+	require_once 'tools/begin.php';
+	if (time()>$start_time+3600*$length){
+		header("Location:index.php");
+		exit();
+	}
+?>
 
 <?php
 

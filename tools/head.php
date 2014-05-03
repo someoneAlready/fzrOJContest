@@ -21,7 +21,7 @@
                                                 echo $_SESSION[uname].'  <a href="logout.php">Logout</a>';
                                         }
                                         else
-                                                echo '<a href="login.php">Login</a> <a href="register.php">Rigister</a>';
+                                                echo '<a href="login.php">Login</a>';
                                 ?>
 
 				</td>

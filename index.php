@@ -13,7 +13,7 @@
 		<?php require_once 'tools/func.php' ?>
 		<div id="PageBody">
 			<img align="right" src="files/12.png" />
-			<h2>The 7th Zhengzhou University Collegiate Programming Contest</h2>
+			<h2>Qualification Round of the 7th Henan Province Programming Contest</h2>
 			<table id="table2" >
 				<tr>
 					<td>Start Time:</td>

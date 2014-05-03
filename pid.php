@@ -1,4 +1,5 @@
 <?php
+	require_once 'tools/begin.php';
 	require_once 'tools/info.php';
 	require_once 'tools/conn.php';
 	$pid=$_GET['pid'];
@@ -55,8 +56,6 @@
 				
 				<p id="subs">
 					<a href="submit.php?pid=<?php echo $pid ?>">[Submit]</a>&nbsp;&nbsp;&nbsp;
-					<a href="">[Status]</a>&nbsp;&nbsp;&nbsp;
-					<a href="">[Discuss]</a>
 				</p>	
 	
 		</div>

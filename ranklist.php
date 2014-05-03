@@ -33,39 +33,46 @@
 				<?php
 					for ($i=4; $i<$cnt; $i++) $pro[$i]=0;
 					$users = mysql_query("SELECT * from user");
+					$idx = 0;
 					while ($user = mysql_fetch_array($users)){
+						if ($user[uadmin]==1) continue;
 						$uid = $user[uid];
-						$gao[$uid]["time"] = $gao[$uid]["solved"]=0;
-						$gao[$uid]["name"] = $user["uname"];
+						
+						$gao[$idx]["time"] = $gao[$idx]["solved"]=0;
+						$gao[$idx]["name"] = $user["uname"];
 
 						for ($i=4; $i<$cnt; $i++){
 							$pid = $names[$i];
 							$codes = mysql_query("select * from code where pid=$pid and uid=$uid and cstatus<>0 order by cdate");
-							$gao[$uid][$pid][0]=$gao[$uid][$pid][1]=0;
+							$gao[$idx][$pid][0]=$gao[$idx][$pid][1]=0;
 							while ($code = mysql_fetch_array($codes)){
 								if ($code[cstatus]==0) continue;
 								if ($code[cstatus]==3){
-									$gao[$uid][$pid][1]=strtotime($code[cdate])-$start_time+1200*$gao[$uid][$pid][0];
+									$gao[$idx][$pid][1]=strtotime($code[cdate])-$start_time;
 									break;
 								}
 								else
-									$gao[$uid][$pid][0]++;
+									$gao[$idx][$pid][0]++;
 							}
-							if ($gao[$uid][$pid][1]!=0){
-								$gao[$uid]["solved"]++;
-								$gao[$uid]["time"]+=$gao[$uid][$pid][1];
+							if ($gao[$idx][$pid][1]!=0){
+								$gao[$idx]["solved"]++;
+								$gao[$idx]["time"]+=$gao[$idx][$pid][1]+1200*$gao[$idx][$pid][0];
 							}
 						}
-
+						$idx++;
 					}
 					usort($gao, 'cmp');
 					function cmp($a, $b){
-						if ($a["solved"]==$b["sovled"])
+						if ($a["solved"]!=$b["solved"])
+							return $a["solved"]<$b["solved"];
+						if ($a["time"]!=$b["time"])
 							return $a["time"]>$b["time"];
-						return $a["solved"]<$b["solved"];
+						return $a["name"]>$b["name"];
 					}
 
+
 					$rank=0;
+
 					foreach ($gao as $x){
 						$rank++;
 						echo '<tr><td>'.$rank.'</td><td>'.$x["name"].'</td><td>'.$x["solved"].'</td><td>'.floor($x["time"]/60).'</td>';
@@ -86,6 +93,7 @@
 						}
 						echo '</tr>';
 					}
+
 				?>
 				<tr><td colspan="4">total AC</td>
 				<?php
@@ -101,3 +109,4 @@
 	</div>
 </body>
 </html>				
+
